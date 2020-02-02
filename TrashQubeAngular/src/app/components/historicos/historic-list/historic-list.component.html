@@ -1,0 +1,67 @@
+<div class="container">
+    <h2 class="text-center mb-2">Información del Cubo en Tiempo Real</h2>
+    <div class="row mb-5">
+        <div class="col-6 d-flex justify-content-center">
+            <div *ngFor="let historico of historicList; last as isLast">
+                <span *ngIf="isLast">
+                    <table class="table table-sm table-hover">
+                        <tbody>
+                            <h4 class="text-primary mt-3">CUBO 1</h4>
+                            <tr>Distancia Fondo: {{historico.distanciaFondo}}</tr>
+                            <tr>Peso: {{historico.peso}}</tr>
+                            <tr>Dia: {{historico.dia}}</tr>
+                            <tr>Hora: {{historico.hora}}</tr>
+                        </tbody>
+                    </table>
+                </span>
+            </div>
+        </div>
+        <div class="col-6 text-center"> <canvas id="estadoCubo">{{ Estado }}</canvas>
+        </div>
+    </div>
+    
+    <canvas id="historicoFondo">{{ Historico }}</canvas>
+    
+        
+    <h2 class="text-center text-warning mt-3">Estadísticas</h2>
+    <div class="row">
+        <div class="col-4">
+            <table class="table table-sm table-hover">
+                <tbody>
+                    <h4 class="text-sm-left">Medias de los sensores</h4>
+                    <tr>Distancia Media: {{avarageDistance}} m</tr>
+                    <tr>Peso Medio: {{avarageWeight}}  kg</tr>
+                    <tr>Porcentaje Medio: {{avaragePercentage}} %</tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="col-4">
+            <table class="table table-sm table-hover">
+                <tbody>
+                    <h4 class="text-sm-left">Top Pesos</h4>
+                    <tr>1º: {{topWeightF}}  kg &#x267B; {{topWeightDF}}</tr>
+                    <tr>2º: {{topWeightS}}  kg &#x267B; {{topWeightDS}}</tr>
+                    <tr>3º: {{topWeightT}}  kg &#x267B; {{topWeightDT}}</tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-4">
+            <table class="table table-sm table-hover">
+                <tbody>
+                    <h4 class="text-sm-left">Top Distancias al Fondo</h4>
+                    <tr>1º: {{topDistanceF}} m &#x267B; {{topDistanceDF}}</tr>
+                    <tr>2º: {{topDistanceS}} m &#x267B; {{topDistanceDS}}</tr>
+                    <tr>3º: {{topDistanceT}} m &#x267B; {{topDistanceDT}}</tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <agm-map [latitude]="globalLat" [longitude]="globalLng">
+        <agm-marker [latitude]="markerLat" [longitude]="markerLng">
+
+        </agm-marker>
+    </agm-map>
+</div>

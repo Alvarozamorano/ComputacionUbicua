@@ -1,0 +1,81 @@
+<div class="card mt-5">
+    <div class="card-body">
+        <form #historicoForm="ngForm" (ngSubmit)="onSubmit(historicoForm)">
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="historicoService.selectedHistorico.$key">
+            <div class="form-group">
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="dia"
+                    #dia="ngModel"
+                    [(ngModel)]="historicoService.selectedHistorico.dia"
+                    placeholder="Add Historic dia"
+                    >
+            </div>
+
+            <div class="form-group">
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="distanciaFondo"
+                    #distanciaFondo="ngModel"
+                    [(ngModel)]="historicoService.selectedHistorico.distanciaFondo"
+                    placeholder="Add Historic distanciaFondo"
+                    >
+            </div>
+
+            <div class="form-group">
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="hora"
+                    #hora="ngModel"
+                    [(ngModel)]="historicoService.selectedHistorico.hora"
+                    placeholder="Add Historic hora"
+                    >
+            </div>
+
+            <div class="form-group">
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="latitud"
+                    #latitud="ngModel"
+                    [(ngModel)]="historicoService.selectedHistorico.latitud"
+                    placeholder="Add Historic latitud"
+                    >
+            </div>
+
+            <div class="form-group">
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="longitud"
+                    #longitud="ngModel"
+                    [(ngModel)]="historicoService.selectedHistorico.longitud"
+                    placeholder="Add Historic longitud"
+                    >
+            </div>
+
+            <div class="form-group">
+                <input 
+                    type="text"
+                    class="form-control"
+                    name="peso"
+                    #peso="ngModel"
+                    [(ngModel)]="historicoService.selectedHistorico.peso"
+                    placeholder="Add Historic peso"
+                    >
+            </div>
+
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-plus-circle"></i> Add A Hisotric
+                </button>
+                <button class="btn btn-secondary" type="reset" (click)="resetForm(historicoForm)">
+                    <i class="fas fa-sync-alt"></i> Reset
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
